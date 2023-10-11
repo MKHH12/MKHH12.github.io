@@ -1,0 +1,552 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+link {
+    display: none;
+}
+
+
+
+.navbar {
+    background-color: #212838;
+    font-size: 18;
+    width: 100%;
+    height: 11vh;
+    position: fixed; /* Menetapkan elemen pada posisi tetap */
+    top: 0; /* Menempatkan elemen di bagian atas */
+    z-index: 1; /* Menetapkan lapisan tampilan */
+    box-shadow: 0px 0px 15px 5px wheat ;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.small-navbar {
+    height: 8vh; /* Ukuran kecil saat di-scroll */
+}
+
+.UL-navbar{
+    height: 70px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
+.li-navbar{
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    transition: 0.2s;
+    transition-delay: 10s;
+    list-style-type: none;
+    margin: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex; /* Menampilkan elemen dalam mode flex */
+    align-items: center;
+}
+.li-navbar::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3.9px;
+    background-color: whitesmoke; /* Warna garis */
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width .5s;
+  }
+
+.li-navbar:hover::after {
+    width: 100%;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    margin-right: 0%; /* Memberi jarak antara logo dan teks */
+    
+    transition: height .5s;
+    
+}
+
+.small-navbar .logo img {
+    height: 50px; /* Ukuran logo saat di-scroll */
+    
+}
+
+.a-navbar {
+    color: wheat;
+    text-decoration: none;
+}
+
+
+
+.content-1 {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url(kerrr.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+:root{
+
+    --color:#9176FF;
+    --dark-color: rgb(27, 27, 27, .95);
+    --dark-icon-color: #fff;
+    --light-color: #f7f7f7;
+    --light-icon-color: #FFDE59;
+    --navbar-color: #212838;
+    --putih-color: #cec8c8;
+}
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
+    background-color: var(--putih-color) ;
+
+}
+
+.posisi{
+    position: absolute;
+    
+    right: 0.5%;
+}
+
+.btn{
+    background-color: #fff;
+    width: 5em ;
+    height: 2.5em;
+    border-radius: 5em ;
+    padding: 0 0.5em;
+
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .1),
+                inset 0 8px 8px rgba(0,0,0, .1),
+                inset 0 -4px 4px rgba(0,0,0, .1);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.btn_indicator{
+    background-color: #fff;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+
+    position: absolute;
+
+    box-shadow: 0 2px 10px rgba(0,0,0, .5);
+    
+    transition: transform .3s ease;
+}
+
+.btn_icon-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_icon{
+    color: var(--light-icon-color);
+    font-size: 1.2rem ;
+}
+
+/* ----------ANIMATION---------- */
+.btn_icon.animated{
+    animation: spin 0.4s;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+
+/* ----------DARKMODE---------- */
+
+body.darkmode {
+    background-color: var(--dark-color);
+    color: var(--putih-color);
+    
+    
+}
+
+/* Untuk elemen lain yang berubah warna */
+body.darkmode .navbar {
+    background-color: var(--navbar-color) ;
+    color: var(--putih-color);
+}
+
+.darkmode .btn{
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+                inset 8px 0 8px rgba(0,0,0, .3),
+                inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+body.darkmode .text h1,
+body.darkmode .text2 h1,
+body.darkmode .ringkasan h1 {
+    color: var(--putih-color); /* Ubah warna teks menjadi putih saat mode gelap aktif */
+}
+
+
+
+.darkmode .btn_indicator{
+    transform: translateX(3em);
+    background-color: var(--dark-color);
+    box-shadow: 0 4px 10px rgba(0,0,0, .3);
+}
+
+.darkmode .btn_icon{
+    color: var(--dark-icon-color);
+}
+
+.circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #ccc;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    margin-top: 8vh;
+    /* margin-bottom: 10px; */
+    
+}
+
+.circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ini akan mengubah ukuran gambar agar sesuai dengan lingkaran */
+    
+}
+
+.text {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 30%; /* Mengatur posisi vertikal ke tengah */
+    left: 60%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; /* Mengatur teks ke tengah */
+    color: rgb(77, 77, 77); /* Warna teks */
+    font-size: 35px; /* Ukuran font teks */
+    font-weight: bold; /* Ketebalan font */
+    text-shadow: 2px 2px 4px rgba(77, 77,77, 0.7); /* Bayangan teks */
+}
+
+.text2 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 40%; /* Mengatur posisi vertikal ke tengah */
+    left: 61%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; /* Mengatur teks ke tengah */
+    color: rgb(77, 77, 77); /* Warna teks */
+    font-size: 15px; /* Ukuran font teks */
+    font-weight: bold; /* Ketebalan font */
+    text-shadow: 2px 2px 4px rgba(77, 77,77, 0.5); /* Bayangan teks */
+}
+
+.circle-profile {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 48%; /* Mengatur posisi vertikal ke tengah */
+    left: 56%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 80px;
+    height: 80px;
+    background-color: rgb(224, 211, 183); /* Warna latar belakang circle */
+    border-radius: 50%; /* Membuatnya menjadi lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Atur margin sesuai kebutuhan */
+    transition: background-color 0.3s; /* Efek transisi saat hover */
+    text-decoration: none;
+  }
+  
+  /* Gaya teks di dalam circle */
+  .circle-profile h1 {
+    margin: 0;
+    font-size: 10px;
+    color: #222; /* Warna teks */
+  }
+  
+  /* Gaya hover saat cursor di atas circle */
+  .circle-profile:hover {
+    background-color: rgb(224, 211, 183, 0.6); /* Warna latar belakang berubah saat hover */
+    opacity: px;
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+  .circle-profile2 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 48%; /* Mengatur posisi vertikal ke tengah */
+    left: 64%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 80px;
+    height: 80px;
+    background-color: lightslategrey; /* Warna latar belakang circle */
+    border-radius: 50%; /* Membuatnya menjadi lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Atur margin sesuai kebutuhan */
+    transition: background-color 0.3s; /* Efek transisi saat hover */
+    text-decoration: none;
+  }
+  
+  /* Gaya teks di dalam circle */
+  .circle-profile2 h1 {
+    margin: 0;
+    font-size: 10px;
+    color: #222; /* Warna teks */
+  }
+  
+  /* Gaya hover saat cursor di atas circle */
+  .circle-profile2:hover {
+    background-color: rgb(119, 136, 153, 0.7); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+  .circle-profile3 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 48%; /* Mengatur posisi vertikal ke tengah */
+    left: 72%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 80px;
+    height: 80px;
+    background-color: rgb(148, 200, 218); /* Warna latar belakang circle */
+    border-radius: 50%; /* Membuatnya menjadi lingkaran */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Atur margin sesuai kebutuhan */
+    transition: background-color 0.3s; /* Efek transisi saat hover */
+    text-decoration: none;
+  }
+  
+  /* Gaya teks di dalam circle */
+  .circle-profile3 h1 {
+    margin: 0;
+    font-size: 10px;
+    color: #222; /* Warna teks */
+  }
+  
+  /* Gaya hover saat cursor di atas circle */
+  .circle-profile3:hover {
+    background-color: rgb(148, 200, 218, 0.6); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+
+
+.ringkasan {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 68%; /* Mengatur posisi vertikal ke tengah */
+    left: 69%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.singkat {
+    font-size: 11px;
+    color: rgb(77, 77, 77);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container-footer {
+    height: 60vh;
+    background-color: #212838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-footer img {
+    height: 100px;
+    width: auto;
+    margin-right: 40px; /* Memberi jarak antara logo dan teks */
+    margin-bottom: 120%;
+    
+}
+
+.motivasi {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 113%;
+    left: 49%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    /* text-align: center; Mengatur teks ke tengah */
+}
+
+.kata {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 118%;
+    left: 49%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.motiv {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.circle2 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 130%;
+    left: 48%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; 
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle2 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle2:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle3 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 130%;
+    left: 42%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle3 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle3:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle4 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 130%;
+    left: 54%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle4 img {
+    width: 50%;
+    height: 50%;
+    margin-top: 12px;
+    margin-left: 12px;
+    
+    
+}
+
+.circle4:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+  .copy{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 140%;
+    left: 40%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.craft {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.copyright{
+    
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 140.5%;
+    left: 48.5%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.copyright img {
+    width: 25px;
+    height: 25px;
+}
+
+.nama{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 140%;
+    left: 58%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
