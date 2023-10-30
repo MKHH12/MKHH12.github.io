@@ -1,0 +1,475 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.navbar {
+    background-color: #212838;
+    font-size: 18;
+    width: 100%;
+    height: 12vh;
+    position: fixed; /* Menetapkan elemen pada posisi tetap */
+    top: 0; /* Menempatkan elemen di bagian atas */
+    z-index: 1; /* Menetapkan lapisan tampilan */
+    box-shadow: 0 0 15px 5px wheat;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.small-navbar {
+    height: 8vh; /* Ukuran kecil saat di-scroll */
+}
+
+.UL-navbar{
+    height: 70px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
+.li-navbar{
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    transition: 0.2s;
+    transition-delay: 10s;
+    list-style-type: none;
+    margin: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex; /* Menampilkan elemen dalam mode flex */
+    align-items: center;
+}
+.li-navbar::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3.9px;
+    background-color: whitesmoke; /* Warna garis */
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width .5s;
+  }
+
+.li-navbar:hover::after {
+    width: 100%;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    
+    transition: height .5s;
+    
+}
+
+.small-navbar .logo img {
+    height: 50px; /* Ukuran logo saat di-scroll */
+    
+}
+
+.a-navbar {
+    color: wheat;
+    text-decoration: none;
+}
+
+/* Tambahkan gaya untuk login-container */
+.Tambah-container {
+    position: absolute;
+    left: 100px; /* Sesuaikan jarak dari tepi kanan sesuai kebutuhan */
+  }
+
+.Tambah-container a {
+    text-decoration: none;
+    color: wheat;
+}
+  
+  /* Sesuaikan gaya tombol Tambah */
+.btnTambah-Popup {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: wheat;
+    cursor: pointer;
+    transition: .5s;
+}
+  
+.btnTambah-Popup:hover{
+    background: rgb(255, 255, 255, .5);
+}
+
+.small-navbar .btnTambah-Popup {
+    top: 1%;
+    
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 360vh;
+    
+    position: relative; /* Menambahkan posisi relatif untuk penempatan teks */
+    
+}
+
+
+:root{
+
+    --color:#9176FF;
+    --dark-color: #2b2b2b;
+    --dark-icon-color: #fff;
+    --light-color: #f7f7f7;
+    --light-icon-color: #FFDE59;
+    --putih-color: #cec8c8;
+}
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
+    background-color: var(--putih-color) ;
+
+}
+
+
+
+
+
+.posisi{
+    position: absolute;
+    
+    right: 0.5%;
+}
+
+.btn{
+    background-color: #fff;
+    width: 5em ;
+    height: 2.5em;
+    border-radius: 5em ;
+    padding: 0 0.5em;
+
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .1),
+                inset 0 8px 8px rgba(0,0,0, .1),
+                inset 0 -4px 4px rgba(0,0,0, .1);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.btn_indicator{
+    background-color: #fff;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+
+    position: absolute;
+
+    box-shadow: 0 2px 10px rgba(0,0,0, .5);
+    
+    transition: transform .3s ease;
+}
+
+.btn_icon-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_icon{
+    color: var(--light-icon-color);
+    font-size: 1.2rem ;
+}
+
+/* ----------ANIMATION---------- */
+.btn_icon.animated{
+    animation: spin 0.4s;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+
+/* ----------DARKMODE---------- */
+
+body.darkmode {
+    background-color: var(--dark-color);
+    color: var(--dark-icon-color);
+}
+
+/* Untuk elemen lain yang berubah warna */
+body.darkmode .navbar {
+    background-color: #212838;
+    color: var(--dark-icon-color);
+}
+
+body.darkmode .caption p{
+    color: rgb(238, 205, 145);
+}
+
+.darkmode .btn{
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+                inset 8px 0 8px rgba(0,0,0, .3),
+                inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+
+
+.darkmode .btn_indicator{
+    transform: translateX(3em);
+    background-color: var(--dark-color);
+    box-shadow: 0 4px 10px rgba(0,0,0, .3);
+}
+
+.darkmode .btn_icon{
+    color: var(--dark-icon-color);
+}
+
+
+
+.caption {
+    color: rgb(223, 179, 99);
+    font-size: 60px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    position: absolute; 
+    align-items: center;
+    justify-content: center;
+    top: 120; 
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3 ,1fr);
+    margin: 75 px;
+    grid-gap: 20px;
+    margin-top: 20vh;
+    
+}
+img {
+    object-fit: cover;
+}
+.grid > article {
+    box-shadow: 10px 10px 5px 0px rgb(10, 10, 10);
+    border-radius: 20px;
+    text-align: center;
+    background: whitesmoke;
+    transition: transform;
+    width: 350px; /* Atur lebar kotak */
+    height: 300px; /* Atur tinggi kotak */
+}
+
+.grid > article img {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+
+.konten{
+    color: #333;
+    
+}
+
+.grid > article:hover {
+    transform: scale(.9);
+    
+}
+
+
+
+/* /* .img-content1 {
+    width: 710px;
+    height: auto;
+    border: 2px solid whitesmoke;
+    margin: 5px;
+} */
+
+
+
+.container-footer {
+    height: 60vh;
+    background-color: #212838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-footer img {
+    height: 100px;
+    width: auto;
+    margin-right: 40px; /* Memberi jarak antara logo dan teks */
+    margin-bottom: 120%;
+    
+}
+
+.motivasi {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 389%;
+    left: 49%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    /* text-align: center; Mengatur teks ke tengah */
+}
+
+.kata {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 393%;
+    left: 48%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.motiv {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.circle2 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 402%;
+    left: 48%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle2 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle2:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle3 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 402%;
+    left: 42%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle3 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle3:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle4 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 402%;
+    left: 54%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle4 img {
+    width: 50%;
+    height: 50%;
+    margin-top: 12px;
+    margin-left: 12px;
+    
+    
+}
+
+.circle4:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+  .copy{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 410%;
+    left: 40%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.craft {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.copyright{
+    
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 410.5%;
+    left: 48.5%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.copyright img {
+    width: 25px;
+    height: 25px;
+}
+
+.nama{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 410%;
+    left: 58%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}

@@ -1,0 +1,864 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
+link {
+    display: none;
+}
+
+.result{
+    padding: 10px;
+    border: 1px;
+    background-color: transparent;
+
+}
+
+
+.wrapper .form-box.login{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper{
+
+    width: 400px;
+    height: 360px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255 , .5);
+    border-radius: 20px;
+    backdrop-filter: blur(18px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15%; /* Adjust the top position as needed to place the form box above other sections */
+    left: 33%; /* Adjust the left position as needed to horizontally center it */
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure the form box appears above other elements */
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    color: #162938;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+
+}
+
+.wrapper.active-popup{
+    transform: scale(1);
+}
+
+.wrapper.active{
+    height: 520px;
+}
+
+.wrapper .icon-close{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    
+    
+   
+}
+
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 20px;
+}
+
+.form-box h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.inputBoxx {
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+  }
+  
+  .inputBoxx label {
+    font-size: 18px;
+    font-weight: 600;
+    padding-left: 15px;
+  }
+  
+  
+  .roles {
+    height: 32px;
+    text-indent: 10px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #000000;
+    font-weight: 500;
+    border: none;
+    outline: none;
+  }
+  
+  .inputBoxx .roles .option {
+    display: flex;
+    width: 600px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    /* text-align: left; */
+    /* width: 50%; */
+    text-align: left;
+    border: 1px solid red;
+  }
+
+.input-box{
+
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -4px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+    padding: 0 35px 0 5px;
+}
+
+.input-box .icon{
+    position: absolute;
+    top: 16.5px;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin: 30px 0 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input{
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: #162938;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btnSubmit{
+    width: 100%;
+    height: 35px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+
+}
+
+.login-register{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a{
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+     
+#popup {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: rgba(0,0,0,.7);
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    visibility: hidden;
+}
+
+.window {
+    width: 500px;
+    height: 100px;
+    background: #fff;
+    border-radius: 20px;
+    position: absolute; /* Changed from relative to absolute */
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,.4);
+    text-align: center;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
+}
+
+.window h1 {
+    color: #f1c40f;
+    padding-top: 3%;
+}
+
+.window p {
+    color: black;
+    padding-top: 1%;
+}
+
+.close-button {
+    width: 20px;
+    height: 20px;
+    background: #f1c40f;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    display: block;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+#popup:target {
+    visibility: visible;
+}
+
+
+.navbar {
+    background-color: #212838;
+    font-size: 18;
+    width: 100%;
+    height: 11vh;
+    position: fixed; /* Menetapkan elemen pada posisi tetap */
+    top: 0; /* Menempatkan elemen di bagian atas */
+    z-index: 1; /* Menetapkan lapisan tampilan */
+    box-shadow: 0px 0px 15px 5px wheat ;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.small-navbar {
+    height: 8vh; /* Ukuran kecil saat di-scroll */
+}
+
+.UL-navbar{
+    height: 70px;
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    
+}
+
+.li-navbar{
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+    transition: 0.2s;
+    transition-delay: 10s;
+    list-style-type: none;
+    margin: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex; /* Menampilkan elemen dalam mode flex */
+    align-items: center;
+}
+.li-navbar::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 3.9px;
+    background-color: whitesmoke; /* Warna garis */
+    border-radius: 10px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    transition: width .5s;
+  }
+
+.li-navbar:hover::after {
+    width: 100%;
+}
+
+.logo img {
+    height: 80px;
+    width: auto;
+    margin-right: 0%; /* Memberi jarak antara logo dan teks */
+    
+    transition: height .5s;
+    
+}
+
+.small-navbar .logo img {
+    height: 50px; /* Ukuran logo saat di-scroll */
+    
+}
+
+.a-navbar {
+    color: wheat;
+    text-decoration: none;
+}
+
+/* Tambahkan gaya untuk login-container */
+.login-container {
+    position: absolute;
+    left: 100px; /* Sesuaikan jarak dari tepi kanan sesuai kebutuhan */
+  }
+  
+  /* Sesuaikan gaya tombol Login */
+.btnLogin-Popup {
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 10px;
+    background: transparent;
+    border: 2px solid white;
+    color: wheat;
+    cursor: pointer;
+    transition: .5s;
+}
+  
+.btnLogin-Popup:hover{
+    background: rgb(255, 255, 255, .5);
+}
+
+.small-navbar .btnLogin-Popup {
+    top: 1%;
+    
+}
+
+
+
+
+.content-1 {
+    background-image: url("../gallery/F40_OSAKA.jpg"); /* Ganti dengan path ke gambar F40 Anda */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background: url(kerrr.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+
+
+
+
+.memories {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 25%;
+    left: 22.5%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */   
+}
+
+.memo {
+    font-family: 'Martian+Mono', serif ;
+    color: rgb(0, 71, 181, 0.7);
+    font-size: 80px;
+    
+}
+
+.kotak-1 {
+    border-style: solid;
+    border-width: 7px;
+    border-color: rgba(0, 71, 181, 0.5);
+    width: 33.5vh;
+    height: 48vh;
+    background-color: rgba(0, 0, 0, 0.65);   
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 30%;
+    left: 61.5%; /* Mengatur posisi horizontal ke tengah */
+  }
+
+.info {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 15%;
+    padding-top: 22%;
+    font-size: 17px;
+}
+
+.dates {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 15%;
+    padding-top: 6%;
+    font-size: 22px;
+}
+
+.cars {
+    color: rgb(255, 165, 0, 0.8);
+    padding-left: 15%;
+    padding-top: 20%;
+    font-size: 17px;
+}
+
+.desc {
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 15%;
+    padding-top: 5%;
+    font-size: 12px;
+}
+
+.content-2 {
+
+    height: 120vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    /* background: url(kerrr.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
+}
+
+:root{
+
+    --color:#9176FF;
+    --dark-color: rgb(27, 27, 27, .95);
+    --dark-icon-color: #fff;
+    --light-color: #f7f7f7;
+    --light-icon-color: #FFDE59;
+    --navbar-color: #212838;
+    --putih-color: #cec8c8;
+}
+
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* height: 100vh; */
+    background-color: var(--putih-color) ;
+
+}
+
+
+
+
+
+.posisi{
+    position: absolute;
+    
+    right: 0.5%;
+}
+
+.btn{
+    background-color: #fff;
+    width: 5em ;
+    height: 2.5em;
+    border-radius: 5em ;
+    padding: 0 0.5em;
+
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .1),
+                inset 0 8px 8px rgba(0,0,0, .1),
+                inset 0 -4px 4px rgba(0,0,0, .1);
+
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.btn_indicator{
+    background-color: #fff;
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+
+    position: absolute;
+
+    box-shadow: 0 2px 10px rgba(0,0,0, .5);
+    
+    transition: transform .3s ease;
+}
+
+.btn_icon-container{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_icon{
+    color: var(--light-icon-color);
+    font-size: 1.2rem ;
+}
+
+/* ----------ANIMATION---------- */
+.btn_icon.animated{
+    animation: spin 0.4s;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+
+}
+
+/* ----------DARKMODE---------- */
+
+body.darkmode {
+    background-color: var(--dark-color);
+    color: var(--dark-icon-color);
+    
+    
+}
+
+/* Untuk elemen lain yang berubah warna */
+body.darkmode .navbar {
+    background-color: var(--navbar-color) ;
+    color: var(--dark-icon-color);
+}
+
+.darkmode .btn{
+    box-shadow: inset 0 8px 60px rgba(0,0,0, .3),
+                inset 8px 0 8px rgba(0,0,0, .3),
+                inset 0 -4px 4px rgba(0,0,0, .3);
+}
+
+
+
+.darkmode .btn_indicator{
+    transform: translateX(3em);
+    background-color: var(--dark-color);
+    box-shadow: 0 4px 10px rgba(0,0,0, .3);
+}
+
+.darkmode .btn_icon{
+    color: var(--dark-icon-color);
+}
+
+.image-container {
+    margin-bottom: 36%;
+    margin-right: 1%;
+    margin-left: 1%;
+    display: flex;
+    overflow-x: auto; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+.image-container img {
+    padding-left: 1px;
+    max-width: 100%;
+    /* height: auto; */
+}
+
+.gallery {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 140%;
+    left: 50%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.gal {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white;
+}
+
+.body {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 175%;
+    left: 34%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.body img {
+    width: 73%;
+}
+
+.classic {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 175%;
+    left: 67%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.classic img {
+    width: 146%;
+}
+
+
+
+.bodykit {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 95%;
+    left: 35%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.kit {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white;
+}
+
+.clas {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 95%;
+    left: 75%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+}
+
+.sic {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    color: white;
+}
+
+
+.container-footer {
+    height: 60vh;
+    background-color: #212838;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-footer img {
+    height: 100px;
+    width: auto;
+    margin-right: 40px; /* Memberi jarak antara logo dan teks */
+    margin-bottom: 120%;
+    
+}
+
+.motivasi {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 245%;
+    left: 49%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    /* text-align: center; Mengatur teks ke tengah */
+}
+
+.kata {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 250%;
+    left: 49%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.motiv {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.circle2 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 263%;
+    left: 48%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; 
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle2 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle2:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle3 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 263%;
+    left: 42%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle3 img {
+    width: 60%;
+    height: 60%;
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    
+}
+
+.circle3:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+.circle4 {
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 263%;
+    left: 54%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    width: 50px;
+    height: 50px;
+    background-color: #212838;
+    border-radius: 50%; /* Ini membuat lingkaran */
+    overflow: hidden; /* Ini akan memotong gambar yang melebihi batas lingkaran */
+    margin-right: 300px;
+    border-color: #d2dceb; /* Warna outline merah (#e74c3c) */
+    border-width: 2px; /* Lebar garis tepi (default) */
+    border-style: solid; /* Gaya garis tepi (default) */
+}
+
+.circle4 img {
+    width: 50%;
+    height: 50%;
+    margin-top: 12px;
+    margin-left: 12px;
+    
+    
+}
+
+.circle4:hover {
+    background-color: rgb(255, 255, 255); /* Warna latar belakang berubah saat hover */
+    cursor: pointer; /* Ubah cursor menjadi tanda tangan saat hover */
+  }
+
+  .copy{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 273%;
+    left: 40%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.craft {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d2dceb;
+}
+
+.copyright{
+    
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 273%;
+    left: 48.5%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+.copyright img {
+    width: 25px;
+    height: 25px;
+}
+
+.nama{
+    position: absolute; /* Mengatur posisi absolut untuk overlay teks di atas gambar */
+    top: 273%;
+    left: 58%; /* Mengatur posisi horizontal ke tengah */
+    transform: translate(-50%, -50%); /* Menggeser teks ke tengah baik secara horizontal maupun vertikal */
+    text-align: center; 
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Martian+Mono&display=swap');
